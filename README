@@ -25,7 +25,7 @@ How do I use it?
 
 First, compile it. You need GCC, libvorbis and OpenSSL. Run:
 
-  ./configure && make
+  ./bootstrap && ./configure && make
 
 Then, use it. If you just want to dump everything, try something like:
 
@@ -85,7 +85,7 @@ you can modify until it does exactly what you want.
 Who's to blame?
 ===============
 
-Simon Elén reverse engineered the encryption.
+Simon Elï¿½n reverse engineered the encryption.
 Karl-Johan Karlsson wrote the code.
 The metadata is mostly taken from San Andreas Radio [1].
 

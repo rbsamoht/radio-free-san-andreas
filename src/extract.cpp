@@ -44,7 +44,7 @@
 #include <errno.h>
 #include <limits.h>
 
-#include <openssl/md5.h>
+#include <openssl/evp.h>
 #include <ogg/ogg.h>
 #include <vorbis/codec.h>
 
@@ -267,7 +267,8 @@ int main(int argc, char **argv)
       cout << " done." << endl;
 
       //Fingerprint this file to find the metadata to use
-      const unsigned char *md5 = MD5((uint8_t *)file_image, file_length, NULL);
+      unsigned char md5[EVP_MAX_MD_SIZE] = {};
+      EVP_Q_digest(NULL, "MD5", NULL, (uint8_t *)file_image, file_length, md5, NULL);
       ostringstream md5hex;
       md5hex << hex << setfill('0');
       for(int i = 0; i < 16; ++i)

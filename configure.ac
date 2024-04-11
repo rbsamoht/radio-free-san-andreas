@@ -1,10 +1,7 @@
-AC_INIT(src/extract.cpp)
-AM_CONFIG_HEADER(src/autoconf.h)
-
-PACKAGE_NAME=radio-free-san-andreas
-PACKAGE_VERSION=0.2.2
-
-AM_INIT_AUTOMAKE($PACKAGE_NAME, $PACKAGE_VERSION)
+AC_INIT([radio-free-san-andreas], [0.2.2])
+AM_INIT_AUTOMAKE([])
+AC_CONFIG_SRCDIR([src/extract.cpp])
+AC_CONFIG_HEADERS([src/autoconf.h])
 
 # Check for compiler and preprocessor
 AC_PROG_CC
@@ -16,7 +13,7 @@ AC_PROG_INSTALL
 AC_PROG_MAKE_SET
 
 # Set language requirements for the tests below.
-AC_LANG_CPLUSPLUS
+AC_LANG([C++])
 AC_REQUIRE_CPP
 
 # Checks for libraries.
@@ -26,7 +23,6 @@ AC_CHECK_LIB([ogg], [ogg_sync_buffer],, AC_MSG_ERROR([[*** libogg was not found]
 AC_CHECK_LIB([vorbis], [vorbis_comment_init],, AC_MSG_ERROR([[*** libvorbis was not found]]))
 
 # Checks for header files.
-AC_HEADER_STDC
 AC_CHECK_HEADERS([fcntl.h libintl.h stdint.h stdlib.h string.h unistd.h],, AC_MSG_ERROR([[*** a system header was not found]]))
 AC_CHECK_HEADERS([ogg/ogg.h],, AC_MSG_ERROR([[*** libvorbis headers were not found]]))
 
